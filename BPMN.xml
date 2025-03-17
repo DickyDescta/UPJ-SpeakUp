@@ -1,36 +1,78 @@
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
-<process id="Process_1" isExecutable="false">
-<laneSet id="LaneSet_1">
-<lane id="Lane_Student" name="Mahasiswa"/>
-<lane id="Lane_System" name="Sistem"/>
-<lane id="Lane_Admin" name="Admin"/>
-</laneSet>
+<mxGraphModel dx="1282" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<root>
+<mxCell id="0"/>
+<mxCell id="1" parent="0"/>
+<!--  Swimlane: Mahasiswa  -->
+<mxCell id="Lane_Student" value="Mahasiswa" style="swimlane" vertex="1" parent="1">
+<mxGeometry x="0" y="0" width="250" height="800" as="geometry"/>
+</mxCell>
+<!--  Swimlane: Sistem  -->
+<mxCell id="Lane_System" value="Sistem" style="swimlane" vertex="1" parent="1">
+<mxGeometry x="250" y="0" width="250" height="800" as="geometry"/>
+</mxCell>
+<!--  Swimlane: Admin  -->
+<mxCell id="Lane_Admin" value="Admin" style="swimlane" vertex="1" parent="1">
+<mxGeometry x="500" y="0" width="250" height="800" as="geometry"/>
+</mxCell>
 <!--  Start Event  -->
-<startEvent id="StartEvent_1" name="Start"/>
-<!--  Mahasiswa Activities  -->
-<task id="Task_Login" name="Login"/>
-<exclusiveGateway id="Gateway_Verifikasi" name="Verifikasi"/>
-<task id="Task_Dashboard" name="Dashboard"/>
-<task id="Task_AjukanPengaduan" name="Ajukan Pengaduan"/>
-<task id="Task_PilihKategori" name="Pilih Kategori"/>
-<task id="Task_UploadBukti" name="Upload Bukti"/>
-<task id="Task_KirimPengaduan" name="Kirim Pengaduan"/>
-<!--  Sistem Notifications  -->
-<task id="Task_NotifikasiAdmin" name="Notifikasi ke Admin"/>
-<!--  Admin Activities  -->
-<task id="Task_LoginAdmin" name="Login Admin"/>
-<task id="Task_LihatPengaduan" name="Melihat Pengaduan"/>
-<task id="Task_TanganiPengaduan" name="Menangani Pengaduan"/>
-<task id="Task_Tanggapan" name="Memberikan Tanggapan"/>
-<task id="Task_UpdateStatus" name="Update Status"/>
-<!--  Sistem Notifications  -->
-<task id="Task_NotifikasiMahasiswa" name="Notifikasi ke Mahasiswa"/>
-<!--  Mahasiswa Activities  -->
-<task id="Task_LihatStatus" name="Melihat Status"/>
-<task id="Task_UpvoteDownvote" name="Upvote/Downvote"/>
-<exclusiveGateway id="Gateway_Feedback" name="Feedback?"/>
-<task id="Task_KirimFeedback" name="Kirim Feedback"/>
+<mxCell id="StartEvent" value="Start" style="ellipse;fillColor=green" vertex="1" parent="Lane_Student">
+<mxGeometry x="100" y="30" width="40" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Login  -->
+<mxCell id="Task_Login" value="Login" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="100" width="90" height="40" as="geometry"/>
+</mxCell>
+<!--  Gateway: Verifikasi  -->
+<mxCell id="Gateway_Verifikasi" value="Verifikasi" style="rhombus;fillColor=orange" vertex="1" parent="Lane_Student">
+<mxGeometry x="95" y="160" width="50" height="50" as="geometry"/>
+</mxCell>
+<!--  Task: Dashboard  -->
+<mxCell id="Task_Dashboard" value="Dashboard" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="230" width="90" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Ajukan Pengaduan  -->
+<mxCell id="Task_AjukanPengaduan" value="Ajukan Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="280" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Upload Bukti  -->
+<mxCell id="Task_UploadBukti" value="Upload Bukti" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="330" width="90" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Kirim Pengaduan  -->
+<mxCell id="Task_KirimPengaduan" value="Kirim Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="380" width="90" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Notifikasi ke Admin  -->
+<mxCell id="Task_NotifikasiAdmin" value="Notifikasi ke Admin" style="rounded=1;fillColor=blue" vertex="1" parent="Lane_System">
+<mxGeometry x="325" y="380" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Login Admin  -->
+<mxCell id="Task_LoginAdmin" value="Login Admin" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
+<mxGeometry x="550" y="100" width="90" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Melihat Pengaduan  -->
+<mxCell id="Task_LihatPengaduan" value="Melihat Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
+<mxGeometry x="550" y="160" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Update Status  -->
+<mxCell id="Task_UpdateStatus" value="Update Status" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
+<mxGeometry x="550" y="220" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Notifikasi ke Mahasiswa  -->
+<mxCell id="Task_NotifikasiMahasiswa" value="Notifikasi ke Mahasiswa" style="rounded=1;fillColor=blue" vertex="1" parent="Lane_System">
+<mxGeometry x="325" y="280" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Melihat Status  -->
+<mxCell id="Task_LihatStatus" value="Melihat Status" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="480" width="120" height="40" as="geometry"/>
+</mxCell>
+<!--  Task: Kirim Feedback  -->
+<mxCell id="Task_KirimFeedback" value="Kirim Feedback" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
+<mxGeometry x="75" y="530" width="120" height="40" as="geometry"/>
+</mxCell>
 <!--  End Event  -->
-<endEvent id="EndEvent_1" name="End"/>
-</process>
-</definitions>
+<mxCell id="EndEvent" value="End" style="ellipse;fillColor=red" vertex="1" parent="Lane_Student">
+<mxGeometry x="100" y="600" width="40" height="40" as="geometry"/>
+</mxCell>
+</root>
+</mxGraphModel>
