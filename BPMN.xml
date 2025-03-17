@@ -1,137 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
-    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
-    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
-    xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
-    id="definitions"
-    targetNamespace="http://bpmn.io/schema/bpmn">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+    xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+    id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+  
+  <bpmn:process id="Process_1" isExecutable="false">
+    
+    <!-- Start Event -->
+    <bpmn:startEvent id="StartEvent_1" name="Start"/>
+    
+    <!-- Mahasiswa Actions -->
+    <bpmn:task id="Task_Login" name="Login"/>
+    <bpmn:exclusiveGateway id="Gateway_Verifikasi" name="Verifikasi"/>
+    <bpmn:task id="Task_Dashboard" name="Dashboard"/>
+    <bpmn:task id="Task_AjukanPengaduan" name="Ajukan Pengaduan"/>
+    <bpmn:task id="Task_UploadBukti" name="Upload Bukti"/>
+    <bpmn:task id="Task_KirimPengaduan" name="Kirim Pengaduan"/>
+    <bpmn:task id="Task_MelihatStatus" name="Melihat Status"/>
+    <bpmn:exclusiveGateway id="Gateway_Feedback" name="Feedback?"/>
+    <bpmn:task id="Task_KirimFeedback" name="Kirim Feedback"/>
+    <bpmn:endEvent id="EndEvent_Mahasiswa" name="End"/>
+    
+    <!-- Sistem Actions -->
+    <bpmn:task id="Task_NotifikasiAdmin" name="Notifikasi ke Admin"/>
+    <bpmn:task id="Task_NotifikasiMahasiswa" name="Notifikasi ke Mahasiswa"/>
 
-    <process id="pengaduanMahasiswa" name="Proses Pengaduan Mahasiswa" isExecutable="false">
-        <!-- Start Event -->
-        <startEvent id="startEvent" name="Mulai">
-            <outgoing>flow1</outgoing>
-        </startEvent>
+    <!-- Admin Actions -->
+    <bpmn:startEvent id="StartEvent_Admin" name="Start"/>
+    <bpmn:task id="Task_LoginAdmin" name="Login Admin"/>
+    <bpmn:task id="Task_MelihatPengaduan" name="Melihat Pengaduan"/>
+    <bpmn:task id="Task_UpdateStatus" name="Update Status"/>
+    <bpmn:endEvent id="EndEvent_Admin" name="End"/>
 
-        <!-- Mahasiswa Login -->
-        <task id="loginMahasiswa" name="Login Mahasiswa">
-            <incoming>flow1</incoming>
-            <outgoing>flow2</outgoing>
-        </task>
+    <!-- Sequence Flows -->
+    <bpmn:sequenceFlow id="flow1" sourceRef="StartEvent_1" targetRef="Task_Login"/>
+    <bpmn:sequenceFlow id="flow2" sourceRef="Task_Login" targetRef="Gateway_Verifikasi"/>
+    <bpmn:sequenceFlow id="flow3" sourceRef="Gateway_Verifikasi" targetRef="Task_Dashboard" name="Berhasil"/>
+    <bpmn:sequenceFlow id="flow4" sourceRef="Gateway_Verifikasi" targetRef="EndEvent_Mahasiswa" name="Gagal"/>
+    
+    <bpmn:sequenceFlow id="flow5" sourceRef="Task_Dashboard" targetRef="Task_AjukanPengaduan"/>
+    <bpmn:sequenceFlow id="flow6" sourceRef="Task_AjukanPengaduan" targetRef="Task_UploadBukti"/>
+    <bpmn:sequenceFlow id="flow7" sourceRef="Task_UploadBukti" targetRef="Task_KirimPengaduan"/>
+    <bpmn:sequenceFlow id="flow8" sourceRef="Task_KirimPengaduan" targetRef="Task_NotifikasiAdmin"/>
 
-        <!-- Verifikasi -->
-        <exclusiveGateway id="verifikasiGateway" name="Verifikasi">
-            <incoming>flow2</incoming>
-            <outgoing>flow3</outgoing>
-            <outgoing>flow4</outgoing>
-        </exclusiveGateway>
+    <bpmn:sequenceFlow id="flow9" sourceRef="Task_NotifikasiAdmin" targetRef="Task_LoginAdmin"/>
+    <bpmn:sequenceFlow id="flow10" sourceRef="Task_LoginAdmin" targetRef="Task_MelihatPengaduan"/>
+    <bpmn:sequenceFlow id="flow11" sourceRef="Task_MelihatPengaduan" targetRef="Task_UpdateStatus"/>
+    <bpmn:sequenceFlow id="flow12" sourceRef="Task_UpdateStatus" targetRef="Task_NotifikasiMahasiswa"/>
+    <bpmn:sequenceFlow id="flow13" sourceRef="Task_UpdateStatus" targetRef="EndEvent_Admin"/>
+    
+    <bpmn:sequenceFlow id="flow14" sourceRef="Task_NotifikasiMahasiswa" targetRef="Task_MelihatStatus"/>
+    <bpmn:sequenceFlow id="flow15" sourceRef="Task_MelihatStatus" targetRef="Gateway_Feedback"/>
+    <bpmn:sequenceFlow id="flow16" sourceRef="Gateway_Feedback" targetRef="Task_KirimFeedback" name="Ya"/>
+    <bpmn:sequenceFlow id="flow17" sourceRef="Gateway_Feedback" targetRef="EndEvent_Mahasiswa" name="Tidak"/>
+    <bpmn:sequenceFlow id="flow18" sourceRef="Task_KirimFeedback" targetRef="EndEvent_Mahasiswa"/>
 
-        <!-- Jika Berhasil -->
-        <task id="dashboardMahasiswa" name="Dashboard">
-            <incoming>flow3</incoming>
-            <outgoing>flow5</outgoing>
-        </task>
+  </bpmn:process>
 
-        <!-- Jika Gagal -->
-        <task id="pesanError" name="Tampilkan Pesan Error">
-            <incoming>flow4</incoming>
-            <outgoing>flowEndError</outgoing>
-        </task>
+  <!-- BPMN Diagram -->
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="100" y="100" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Login_di" bpmnElement="Task_Login">
+        <dc:Bounds x="200" y="100" width="100" height="80"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="flow1">
+        <di:waypoint x="136" y="118"/>
+        <di:waypoint x="200" y="118"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_Mahasiswa_di" bpmnElement="EndEvent_Mahasiswa">
+        <dc:Bounds x="400" y="500" width="36" height="36"/>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
 
-        <!-- Pengaduan -->
-        <task id="ajukanPengaduan" name="Ajukan Pengaduan">
-            <incoming>flow5</incoming>
-            <outgoing>flow6</outgoing>
-        </task>
-
-        <task id="uploadBukti" name="Upload Bukti">
-            <incoming>flow6</incoming>
-            <outgoing>flow7</outgoing>
-        </task>
-
-        <task id="kirimPengaduan" name="Kirim Pengaduan">
-            <incoming>flow7</incoming>
-            <outgoing>flowNotifAdmin</outgoing>
-        </task>
-
-        <!-- Sistem Notifikasi -->
-        <intermediateThrowEvent id="notifikasiAdmin" name="Notifikasi ke Admin">
-            <incoming>flowNotifAdmin</incoming>
-            <outgoing>flow8</outgoing>
-        </intermediateThrowEvent>
-
-        <!-- Admin Melihat Pengaduan -->
-        <task id="loginAdmin" name="Login Admin">
-            <incoming>flow8</incoming>
-            <outgoing>flow9</outgoing>
-        </task>
-
-        <task id="lihatPengaduan" name="Melihat Pengaduan">
-            <incoming>flow9</incoming>
-            <outgoing>flow10</outgoing>
-        </task>
-
-        <task id="tanggapanPengaduan" name="Memberikan Tanggapan">
-            <incoming>flow10</incoming>
-            <outgoing>flowUpdateStatus</outgoing>
-        </task>
-
-        <task id="updateStatus" name="Update Status">
-            <incoming>flowUpdateStatus</incoming>
-            <outgoing>flowNotifMahasiswa</outgoing>
-        </task>
-
-        <!-- Sistem Notifikasi ke Mahasiswa -->
-        <intermediateThrowEvent id="notifikasiMahasiswa" name="Notifikasi ke Mahasiswa">
-            <incoming>flowNotifMahasiswa</incoming>
-            <outgoing>flow11</outgoing>
-        </intermediateThrowEvent>
-
-        <!-- Mahasiswa Melihat Status -->
-        <task id="melihatStatus" name="Melihat Status">
-            <incoming>flow11</incoming>
-            <outgoing>flow12</outgoing>
-        </task>
-
-        <!-- Feedback -->
-        <exclusiveGateway id="feedbackGateway" name="Feedback?">
-            <incoming>flow12</incoming>
-            <outgoing>flow13</outgoing>
-            <outgoing>flowEnd</outgoing>
-        </exclusiveGateway>
-
-        <task id="kirimFeedback" name="Kirim Feedback">
-            <incoming>flow13</incoming>
-            <outgoing>flowEnd</outgoing>
-        </task>
-
-        <!-- End Events -->
-        <endEvent id="endEvent" name="Selesai">
-            <incoming>flowEnd</incoming>
-        </endEvent>
-
-        <endEvent id="endErrorEvent" name="Login Gagal">
-            <incoming>flowEndError</incoming>
-        </endEvent>
-
-        <!-- Sequence Flows -->
-        <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="loginMahasiswa"/>
-        <sequenceFlow id="flow2" sourceRef="loginMahasiswa" targetRef="verifikasiGateway"/>
-        <sequenceFlow id="flow3" sourceRef="verifikasiGateway" targetRef="dashboardMahasiswa"/>
-        <sequenceFlow id="flow4" sourceRef="verifikasiGateway" targetRef="pesanError"/>
-        <sequenceFlow id="flow5" sourceRef="dashboardMahasiswa" targetRef="ajukanPengaduan"/>
-        <sequenceFlow id="flow6" sourceRef="ajukanPengaduan" targetRef="uploadBukti"/>
-        <sequenceFlow id="flow7" sourceRef="uploadBukti" targetRef="kirimPengaduan"/>
-        <sequenceFlow id="flowNotifAdmin" sourceRef="kirimPengaduan" targetRef="notifikasiAdmin"/>
-        <sequenceFlow id="flow8" sourceRef="notifikasiAdmin" targetRef="loginAdmin"/>
-        <sequenceFlow id="flow9" sourceRef="loginAdmin" targetRef="lihatPengaduan"/>
-        <sequenceFlow id="flow10" sourceRef="lihatPengaduan" targetRef="tanggapanPengaduan"/>
-        <sequenceFlow id="flowUpdateStatus" sourceRef="tanggapanPengaduan" targetRef="updateStatus"/>
-        <sequenceFlow id="flowNotifMahasiswa" sourceRef="updateStatus" targetRef="notifikasiMahasiswa"/>
-        <sequenceFlow id="flow11" sourceRef="notifikasiMahasiswa" targetRef="melihatStatus"/>
-        <sequenceFlow id="flow12" sourceRef="melihatStatus" targetRef="feedbackGateway"/>
-        <sequenceFlow id="flow13" sourceRef="feedbackGateway" targetRef="kirimFeedback"/>
-        <sequenceFlow id="flowEnd" sourceRef="kirimFeedback" targetRef="endEvent"/>
-        <sequenceFlow id="flowEndError" sourceRef="pesanError" targetRef="endErrorEvent"/>
-    </process>
-
-</definitions>
+</bpmn:definitions>
