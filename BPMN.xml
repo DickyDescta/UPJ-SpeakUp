@@ -1,0 +1,36 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">
+<process id="Process_1" isExecutable="false">
+<laneSet id="LaneSet_1">
+<lane id="Lane_Student" name="Mahasiswa"/>
+<lane id="Lane_System" name="Sistem"/>
+<lane id="Lane_Admin" name="Admin"/>
+</laneSet>
+<!--  Start Event  -->
+<startEvent id="StartEvent_1" name="Start"/>
+<!--  Mahasiswa Activities  -->
+<task id="Task_Login" name="Login"/>
+<exclusiveGateway id="Gateway_Verifikasi" name="Verifikasi"/>
+<task id="Task_Dashboard" name="Dashboard"/>
+<task id="Task_AjukanPengaduan" name="Ajukan Pengaduan"/>
+<task id="Task_PilihKategori" name="Pilih Kategori"/>
+<task id="Task_UploadBukti" name="Upload Bukti"/>
+<task id="Task_KirimPengaduan" name="Kirim Pengaduan"/>
+<!--  Sistem Notifications  -->
+<task id="Task_NotifikasiAdmin" name="Notifikasi ke Admin"/>
+<!--  Admin Activities  -->
+<task id="Task_LoginAdmin" name="Login Admin"/>
+<task id="Task_LihatPengaduan" name="Melihat Pengaduan"/>
+<task id="Task_TanganiPengaduan" name="Menangani Pengaduan"/>
+<task id="Task_Tanggapan" name="Memberikan Tanggapan"/>
+<task id="Task_UpdateStatus" name="Update Status"/>
+<!--  Sistem Notifications  -->
+<task id="Task_NotifikasiMahasiswa" name="Notifikasi ke Mahasiswa"/>
+<!--  Mahasiswa Activities  -->
+<task id="Task_LihatStatus" name="Melihat Status"/>
+<task id="Task_UpvoteDownvote" name="Upvote/Downvote"/>
+<exclusiveGateway id="Gateway_Feedback" name="Feedback?"/>
+<task id="Task_KirimFeedback" name="Kirim Feedback"/>
+<!--  End Event  -->
+<endEvent id="EndEvent_1" name="End"/>
+</process>
+</definitions>
