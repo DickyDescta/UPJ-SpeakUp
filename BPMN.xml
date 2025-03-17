@@ -1,114 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="1282" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1"
-    fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-    <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-        
-        <!-- Swimlane: Mahasiswa -->
-        <mxCell id="Lane_Student" value="Mahasiswa" style="swimlane" vertex="1" parent="1">
-            <mxGeometry x="0" y="0" width="250" height="800" as="geometry" />
-        </mxCell>
-        
-        <!-- Swimlane: Sistem -->
-        <mxCell id="Lane_System" value="Sistem" style="swimlane" vertex="1" parent="1">
-            <mxGeometry x="250" y="0" width="250" height="800" as="geometry" />
-        </mxCell>
-        
-        <!-- Swimlane: Admin -->
-        <mxCell id="Lane_Admin" value="Admin" style="swimlane" vertex="1" parent="1">
-            <mxGeometry x="500" y="0" width="250" height="800" as="geometry" />
-        </mxCell>
-        
-        <!-- Start Event -->
-        <mxCell id="StartEvent" value="Start" style="ellipse;fillColor=green" vertex="1" parent="Lane_Student">
-            <mxGeometry x="100" y="30" width="40" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Login -->
-        <mxCell id="Task_Login" value="Login" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="100" width="90" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Gateway: Verifikasi -->
-        <mxCell id="Gateway_Verifikasi" value="Verifikasi" style="rhombus;fillColor=orange" vertex="1" parent="Lane_Student">
-            <mxGeometry x="95" y="160" width="50" height="50" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Dashboard -->
-        <mxCell id="Task_Dashboard" value="Dashboard" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="230" width="90" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Task: Ajukan Pengaduan -->
-        <mxCell id="Task_AjukanPengaduan" value="Ajukan Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="280" width="120" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Upload Bukti -->
-        <mxCell id="Task_UploadBukti" value="Upload Bukti" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="330" width="90" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Task: Kirim Pengaduan -->
-        <mxCell id="Task_KirimPengaduan" value="Kirim Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="380" width="90" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Notifikasi ke Admin -->
-        <mxCell id="Task_NotifikasiAdmin" value="Notifikasi ke Admin" style="rounded=1;fillColor=blue" vertex="1" parent="Lane_System">
-            <mxGeometry x="325" y="380" width="120" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Login Admin -->
-        <mxCell id="Task_LoginAdmin" value="Login Admin" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
-            <mxGeometry x="550" y="100" width="90" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Melihat Pengaduan -->
-        <mxCell id="Task_LihatPengaduan" value="Melihat Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
-            <mxGeometry x="550" y="160" width="120" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Task: Update Status -->
-        <mxCell id="Task_UpdateStatus" value="Update Status" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Admin">
-            <mxGeometry x="550" y="220" width="120" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Task: Notifikasi ke Mahasiswa -->
-        <mxCell id="Task_NotifikasiMahasiswa" value="Notifikasi ke Mahasiswa" style="rounded=1;fillColor=blue" vertex="1" parent="Lane_System">
-            <mxGeometry x="325" y="280" width="120" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Task: Melihat Status -->
-        <mxCell id="Task_LihatStatus" value="Melihat Status" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="480" width="120" height="40" as="geometry" />
-        </mxCell>
-
-        <!-- Task: Kirim Feedback -->
-        <mxCell id="Task_KirimFeedback" value="Kirim Feedback" style="rounded=1;fillColor=yellow" vertex="1" parent="Lane_Student">
-            <mxGeometry x="75" y="530" width="120" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- End Event -->
-        <mxCell id="EndEvent" value="End" style="ellipse;fillColor=red" vertex="1" parent="Lane_Student">
-            <mxGeometry x="100" y="600" width="40" height="40" as="geometry" />
-        </mxCell>
-        
-        <!-- Connecting lines -->
-        <mxCell edge="1" parent="1" source="StartEvent" target="Task_Login" />
-        <mxCell edge="1" parent="1" source="Task_Login" target="Gateway_Verifikasi" />
-        <mxCell edge="1" parent="1" source="Gateway_Verifikasi" target="Task_Dashboard" />
-        <mxCell edge="1" parent="1" source="Task_Dashboard" target="Task_AjukanPengaduan" />
-        <mxCell edge="1" parent="1" source="Task_AjukanPengaduan" target="Task_UploadBukti" />
-        <mxCell edge="1" parent="1" source="Task_UploadBukti" target="Task_KirimPengaduan" />
-        <mxCell edge="1" parent="1" source="Task_KirimPengaduan" target="Task_NotifikasiAdmin" />
-        <mxCell edge="1" parent="1" source="Task_NotifikasiAdmin" target="Task_LihatPengaduan" />
-        <mxCell edge="1" parent="1" source="Task_LihatPengaduan" target="Task_UpdateStatus" />
-        <mxCell edge="1" parent="1" source="Task_UpdateStatus" target="Task_NotifikasiMahasiswa" />
-        <mxCell edge="1" parent="1" source="Task_NotifikasiMahasiswa" target="Task_LihatStatus" />
-        <mxCell edge="1" parent="1" source="Task_LihatStatus" target="Task_KirimFeedback" />
-        <mxCell edge="1" parent="1" source="Task_KirimFeedback" target="EndEvent" />
-
-    </root>
-</mxGraphModel>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" targetNamespace="http://bpmn.io/schema/bpmn">
+  <process id="upjspeakup_process" name="UPJspeakUP BPMN" isExecutable="false">
+    
+    <!-- Pengajuan Pengaduan -->
+    <startEvent id="start_pengaduan" name="Start" />
+    <sequenceFlow id="flow1" sourceRef="start_pengaduan" targetRef="login" />
+    <task id="login" name="Login" />
+    <sequenceFlow id="flow2" sourceRef="login" targetRef="verifikasi" />
+    <exclusiveGateway id="verifikasi" name="Verifikasi" />
+    <sequenceFlow id="flow3_yes" sourceRef="verifikasi" targetRef="dashboard" name="Verifikasi Berhasil" />
+    <sequenceFlow id="flow3_no" sourceRef="verifikasi" targetRef="end_pengaduan" name="Verifikasi Gagal" />
+    <task id="dashboard" name="Dashboard" />
+    <sequenceFlow id="flow4" sourceRef="dashboard" targetRef="ajukan_pengaduan" />
+    <task id="ajukan_pengaduan" name="Ajukan Pengaduan" />
+    <sequenceFlow id="flow5" sourceRef="ajukan_pengaduan" targetRef="upload_bukti" />
+    <task id="upload_bukti" name="Upload Bukti" />
+    <sequenceFlow id="flow6" sourceRef="upload_bukti" targetRef="kirim_pengaduan" />
+    <task id="kirim_pengaduan" name="Kirim Pengaduan" />
+    <sequenceFlow id="flow7" sourceRef="kirim_pengaduan" targetRef="notifikasi_admin" />
+    <task id="notifikasi_admin" name="Notifikasi ke Admin" />
+    <sequenceFlow id="flow8" sourceRef="notifikasi_admin" targetRef="review_pengaduan" />
+    <task id="review_pengaduan" name="Review Pengaduan oleh Admin" />
+    <sequenceFlow id="flow9" sourceRef="review_pengaduan" targetRef="update_status" />
+    <task id="update_status" name="Update Status" />
+    <sequenceFlow id="flow10" sourceRef="update_status" targetRef="notifikasi_mahasiswa" />
+    <task id="notifikasi_mahasiswa" name="Notifikasi ke Mahasiswa" />
+    <sequenceFlow id="flow11" sourceRef="notifikasi_mahasiswa" targetRef="melihat_status" />
+    <task id="melihat_status" name="Melihat Status" />
+    <sequenceFlow id="flow12" sourceRef="melihat_status" targetRef="kirim_feedback" />
+    <task id="kirim_feedback" name="Kirim Feedback" />
+    <sequenceFlow id="flow13" sourceRef="kirim_feedback" targetRef="end_pengaduan" />
+    <endEvent id="end_pengaduan" name="End" />
+    
+  </process>
+</definitions>
