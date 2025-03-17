@@ -3,44 +3,25 @@
   <process id="upjspeakup_process" name="UPJspeakUP BPMN" isExecutable="false">
     
     <!-- Pengajuan Pengaduan -->
-    <startEvent id="start_pengaduan" name="Mahasiswa Login" />
-    <task id="akses_pengaduan" name="Akses 'Buat Pengaduan'" />
-    <task id="isi_form_pengaduan" name="Isi Form Pengaduan" />
-    <task id="simpan_pengaduan" name="Simpan Pengaduan (Pending)" />
-    <task id="notifikasi_admin" name="Kirim Notifikasi ke Admin" />
-    <endEvent id="end_pengaduan" name="Pengaduan Diajukan" />
-    
-    <!-- Penanganan Pengaduan oleh Admin -->
-    <startEvent id="start_admin" name="Admin Menerima Notifikasi" />
-    <task id="tampilkan_pengaduan" name="Tampilkan Daftar Pengaduan" />
-    <task id="tinjau_pengaduan" name="Admin Meninjau Pengaduan" />
-    <task id="ubah_status" name="Admin Memperbarui Status" />
-    <task id="notifikasi_mahasiswa" name="Kirim Notifikasi ke Mahasiswa" />
-    <endEvent id="end_admin" name="Penanganan Selesai" />
-    
-    <!-- Pemantauan Status Pengaduan -->
-    <startEvent id="start_pemantauan" name="Mahasiswa Login" />
-    <task id="akses_riwayat" name="Akses 'Riwayat Pengaduan'" />
-    <task id="tampilkan_status" name="Tampilkan Status Pengaduan" />
-    <exclusiveGateway id="cek_perubahan" name="Ada Perubahan Status?" />
-    <task id="detail_status" name="Tampilkan Detail Perubahan" />
-    <endEvent id="end_pemantauan" name="Pemantauan Selesai" />
-    
-    <!-- Interaksi Mahasiswa Lain -->
-    <startEvent id="start_interaksi" name="Mahasiswa Login" />
-    <task id="akses_pengaduan_terbaru" name="Akses 'Pengaduan Terbaru'" />
-    <task id="tampilkan_pengaduan_lain" name="Tampilkan Daftar Pengaduan" />
-    <task id="beri_vote" name="Beri Upvote/Downvote" />
-    <task id="simpan_vote" name="Simpan Vote" />
-    <endEvent id="end_interaksi" name="Interaksi Selesai" />
-    
-    <!-- Penyelesaian Pengaduan -->
-    <startEvent id="start_penyelesaian" name="Admin Meninjau Pengaduan" />
-    <task id="ubah_status_selesai" name="Perbarui Status ke 'Selesai'" />
-    <task id="notifikasi_selesai" name="Kirim Notifikasi ke Mahasiswa" />
-    <task id="feedback_mahasiswa" name="Mahasiswa Memberikan Feedback" />
-    <task id="simpan_feedback" name="Simpan Feedback" />
-    <endEvent id="end_penyelesaian" name="Penyelesaian Selesai" />
+    <startEvent id="start_pengaduan" name="Start" />
+    <sequenceFlow id="flow1" sourceRef="start_pengaduan" targetRef="login" />
+    <task id="login" name="Login" />
+    <sequenceFlow id="flow2" sourceRef="login" targetRef="verifikasi" />
+    <exclusiveGateway id="verifikasi" name="Verifikasi" />
+    <sequenceFlow id="flow3" sourceRef="verifikasi" targetRef="dashboard" />
+    <task id="dashboard" name="Dashboard" />
+    <sequenceFlow id="flow4" sourceRef="dashboard" targetRef="ajukan_pengaduan" />
+    <task id="ajukan_pengaduan" name="Ajukan Pengaduan" />
+    <sequenceFlow id="flow5" sourceRef="ajukan_pengaduan" targetRef="upload_bukti" />
+    <task id="upload_bukti" name="Upload Bukti" />
+    <sequenceFlow id="flow6" sourceRef="upload_bukti" targetRef="kirim_pengaduan" />
+    <task id="kirim_pengaduan" name="Kirim Pengaduan" />
+    <sequenceFlow id="flow7" sourceRef="kirim_pengaduan" targetRef="melihat_status" />
+    <task id="melihat_status" name="Melihat Status" />
+    <sequenceFlow id="flow8" sourceRef="melihat_status" targetRef="kirim_feedback" />
+    <task id="kirim_feedback" name="Kirim Feedback" />
+    <sequenceFlow id="flow9" sourceRef="kirim_feedback" targetRef="end_pengaduan" />
+    <endEvent id="end_pengaduan" name="End" />
     
   </process>
 </definitions>
