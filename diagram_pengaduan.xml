@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="888" dy="408" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <!-- Swimlanes -->
+    <mxCell id="2" value="Mahasiswa" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="0" y="0" width="250" height="600" as="geometry" />
+    </mxCell>
+    <mxCell id="3" value="Sistem" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="250" y="0" width="200" height="600" as="geometry" />
+    </mxCell>
+    <mxCell id="4" value="Admin" style="swimlane" vertex="1" parent="1">
+      <mxGeometry x="450" y="0" width="250" height="600" as="geometry" />
+    </mxCell>
+    
+    <!-- Start -->
+    <mxCell id="5" value="Start" style="ellipse;fillColor=green" vertex="1" parent="2">
+      <mxGeometry x="100" y="20" width="60" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Login -->
+    <mxCell id="6" value="Login" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="80" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Verifikasi -->
+    <mxCell id="7" value="Verifikasi?" style="rhombus;fillColor=orange" vertex="1" parent="2">
+      <mxGeometry x="100" y="140" width="60" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Dashboard -->
+    <mxCell id="8" value="Dashboard" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="200" width="80" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Pesan Error -->
+    <mxCell id="9" value="Tampilkan Pesan Error" style="rounded=1;fillColor=red" vertex="1" parent="2">
+      <mxGeometry x="70" y="260" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Ajukan Pengaduan -->
+    <mxCell id="10" value="Ajukan Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="320" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Upload Bukti -->
+    <mxCell id="11" value="Upload Bukti" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="380" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Kirim Pengaduan -->
+    <mxCell id="12" value="Kirim Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="440" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Notifikasi ke Admin -->
+    <mxCell id="13" value="Notifikasi ke Admin" style="rounded=1;fillColor=cyan" vertex="1" parent="3">
+      <mxGeometry x="270" y="460" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Admin Login -->
+    <mxCell id="14" value="Login Admin" style="rounded=1;fillColor=yellow" vertex="1" parent="4">
+      <mxGeometry x="490" y="20" width="100" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Melihat Pengaduan -->
+    <mxCell id="15" value="Melihat Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="4">
+      <mxGeometry x="490" y="80" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Menangani Pengaduan -->
+    <mxCell id="16" value="Menangani Pengaduan" style="rounded=1;fillColor=yellow" vertex="1" parent="4">
+      <mxGeometry x="490" y="140" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Update Status -->
+    <mxCell id="17" value="Update Status" style="rounded=1;fillColor=yellow" vertex="1" parent="4">
+      <mxGeometry x="490" y="200" width="100" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Notifikasi ke Mahasiswa -->
+    <mxCell id="18" value="Notifikasi ke Mahasiswa" style="rounded=1;fillColor=cyan" vertex="1" parent="3">
+      <mxGeometry x="270" y="220" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Melihat Status -->
+    <mxCell id="19" value="Melihat Status" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="500" width="120" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Feedback? -->
+    <mxCell id="20" value="Feedback?" style="rhombus;fillColor=orange" vertex="1" parent="2">
+      <mxGeometry x="100" y="560" width="60" height="40" as="geometry" />
+    </mxCell>
+    
+    <!-- Kirim Feedback -->
+    <mxCell id="21" value="Kirim Feedback" style="rounded=1;fillColor=yellow" vertex="1" parent="2">
+      <mxGeometry x="90" y="620" width="120" height="40" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
